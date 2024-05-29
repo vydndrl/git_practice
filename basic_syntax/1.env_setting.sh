@@ -10,11 +10,7 @@ git push origin 브랜치명
 
 # github 인증 방법 2가지
 # 1. token 인증 방식: github에서 직접 보안키(token) 발급
-
-
 # 2. 제3자 인증(oauth)방식
-
-
 
 # git 프로젝트 생성방법 2가지
 # 방법1. 원격 repo 생성 후 clone
@@ -34,3 +30,28 @@ git remote set-url origin 레포주소
 
 # git 설정정보 조회
 git config --list
+
+# 타인 레포 clone 방법 2가지
+# 1) 커밋 이력 그대로 가져오기
+git clone 타인레포주소
+# 해당 폴더로 이동 후 git 명령어
+git remote set-url origin 내레포주소
+# 별도의 add, commit 필요 없고 바로 push 가능
+git push origin master(또는 main)
+
+# 2) 커밋 이력 없이 가져오기
+git clone 타인레포주소
+# 해당 폴더로 이동 후에 .git 폴더 삭제
+git init
+git remote add origin 내레포주소
+git add .
+git commit -m "first project"
+git push origin master
+
+# 사용자 지정 방법
+# 전역적 사용자(이름, email) 지정
+git config --global user.name "kimseonguk197"
+git config --global user.emai "이메일"
+
+
+# 지역적 사용자(이름, email) 지정
